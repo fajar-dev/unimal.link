@@ -1,18 +1,19 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'LinksController@create')->name('index');
+Route::post('/links', 'LinksController@store')->name('link');
+Route::get('/links/{link}', 'LinksController@show')->name('link_show');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard')->middleware('auth');
+Route::get('/settings', 'DashboardController@settings')->name('setting')->middleware('auth');
+Route::post('/update-profile', 'DashboardController@updateProfile')->name('update_profile')->middleware('auth');
+Route::post('/generate-token', 'DashboardController@generateToken')->name('generate_token')->middleware('auth');
+
+Route::get('/admin/links', 'AdminController@links')->middleware('admin');
+Route::get('/admin/users', 'AdminController@users')->middleware('admin');
+
+Route::get('/{hash}', 'LinksController@process');
