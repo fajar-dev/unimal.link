@@ -11,8 +11,8 @@ class DashboardController extends Controller
     public function index()
     {
         $data['links'] = Link::where('user_id', auth()->id())->withCount('visitors')->get();
-        // $data['total_visitor'] = Link::where('user_id', auth()->id())->withCount('visitors')->count();
         $data['total_links'] = Link::where('user_id', auth()->id())->count();
+        // dd($data);
         return view('user.dashboard', compact('data'));
     }
 

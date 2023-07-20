@@ -117,13 +117,13 @@
                                  <div class=" d-flex  align-items-center">
                                  </div>
                                     <div class="app-navbar-item  ms-1 ms-lg-5">
-                                        <a href="{{ route('register') }}" class="btn btn-primary d-md-block d-none bg-primary btn-hover-success">
+                                        <a href="{{ route('register') }}" class="btn btn-light-warning d-md-block d-none btn-hover-success">
                                             Daftar
                                         </a>
                                     </div>    
                                     @if (Route::has('register'))
                                         <div class="app-navbar-item ms-1 ms-lg-5">
-                                            <a href="{{ route('login') }}" class="btn btn-success  btn-active-light" >
+                                            <a href="{{ route('login') }}" class="btn btn-light-success" >
                                                 Masuk
                                             </a>
                                         </div>  

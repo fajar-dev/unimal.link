@@ -18,17 +18,17 @@
                                     <i class="ki-outline ki-right fs-4 text-white mx-n1"></i>               
                                 </li>
                                 <li class="breadcrumb-item text-white fw-bold lh-1">
-                                    Dashboard                                   
+                                    Tautan                                   
                                 </li>         
                             </ul>
                     </div>
                     <div class="d-flex flex-stack flex-wrap flex-lg-nowrap gap-4 gap-lg-10 pt-6 pb-18 py-lg-13">   
                         <div class="page-title d-flex align-items-center me-3">
-                            <img alt="Logo" src="{{ asset('assets/media/saly.svg') }}" class="w-90px me-5">
+                            <img alt="Logo" src="{{ asset('assets/media/saly1.svg') }}" class="w-90px me-5">
                             <h1 class="page-heading d-flex text-white fw-bolder fs-2 flex-column justify-content-center my-0">
-                                Dashboard
+                                Detail Tautan
                                 <span class="page-desc text-white opacity-50 fs-6 fw-bold pt-2">
-                                    Hai {{ auth()->user()->name }} !!, <br> Selalulah Tersenyum :)       
+                                    {{ secure_url($link->hash) }}     
                                 </span>
                             </h1>
                         </div>
@@ -49,58 +49,84 @@
                 <div id="kt_app_content" class="app-content rounded-2">
                     <div class="row gx-5 gx-xl-10">
                         <div class="col-xl-12 mb-5 mb-xl-10">
-                            <div class="card  card-flush h-xl-100">
-                                <div class="card-header pt-5">
-                                    <h3 class="card-title align-items-start flex-column">
-                                        <span class="card-label fw-bold fs-1 text-gray-800">Detail Tautan</span>
-                                        <span class="text-gray-400 pt-1 fw-semibold fs-6">{{ __('Links Detail') }}</span>
-                                    </h3>
-                                </div>
-                                <div class="card-body py-3">
-                                    <div class="mb-0 my-10">     
-                                        <div class="d-flex flex-stack">
-                                            <div class="d-flex align-items-center me-5">
-                                                <div class="symbol symbol-30px me-5">
-                                                    <span class="symbol-label">  
-                                                        <i class="ki-outline ki-magnifier fs-3 text-gray-600"></i>                             
-                                                    </span>                
+                            <div class="card-header pt-5 pb-0">
+                               <div>
+                                <a href="{{route('dashboard')}}" class="btn btn-light ">
+                                    <i class="ki ki-arrow-back"></i> Kembali
+                                </a>
+                               </div>
+                            </div>
+                            <div class="card  card-flush pb-0 mb-10">
+                                <div class="card-body pb-0 mb-0">
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-md-4 text-center img-fluid">
+                                            {{-- {{QrCode::format('png')->merge('https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png', .3, true)->generate();}} --}}
+                                            {{QrCode::size(250)->generate(Request::url())}}
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="mb-0 my-10">     
+                                                <div class="d-flex flex-stack">
+                                                    <div class="d-flex align-items-center me-5">
+                                                        <div class="symbol symbol-30px me-5">
+                                                            <span class="symbol-label">  
+                                                                <i class="ki-outline ki-magnifier fs-3 text-gray-600"></i>                             
+                                                            </span>                
+                                                        </div>
+                                                        <div class="me-5">
+                                                            <a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Tautan</a>
+                                                            <span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">{{ $link->url }}</span>   
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="me-5">
-                                                    <a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Tautan</a>
-                                                    <span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">{{ $link->url }}</span>   
+                                                <div class="separator separator-dashed my-5"></div>
+                                                <div class="d-flex flex-stack">
+                                                    <div class="d-flex align-items-center me-5">
+                                                        <div class="symbol symbol-30px me-5">
+                                                            <span class="symbol-label">  
+                                                                <i class="ki-outline ki-magnifier fs-3 text-gray-600"></i>                             
+                                                            </span>                
+                                                        </div>
+                                                        <div class="me-5">
+                                                            <a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Tautan Pendek</a>
+                                                            <span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">{{ secure_url($link->hash) }}</span>   
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                                <div class="separator separator-dashed my-5"></div>
+                                                <div class="d-flex flex-stack">
+                                                    <div class="d-flex align-items-center me-5">
+                                                        <div class="symbol symbol-30px me-5">
+                                                            <span class="symbol-label">  
+                                                                <i class="ki-outline ki-magnifier fs-3 text-gray-600"></i>                             
+                                                            </span>                
+                                                        </div>
+                                                        <div class="me-5">
+                                                            <a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Dibuat pada</a>
+                                                            <span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">{{ $link->created_at->diffForHumans() }}</span>   
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="separator separator-dashed my-3"></div>
                                             </div>
                                         </div>
-                                        <div class="separator separator-dashed my-5"></div>
-                                        <div class="d-flex flex-stack">
-                                            <div class="d-flex align-items-center me-5">
-                                                <div class="symbol symbol-30px me-5">
-                                                    <span class="symbol-label">  
-                                                        <i class="ki-outline ki-magnifier fs-3 text-gray-600"></i>                             
-                                                    </span>                
-                                                </div>
-                                                <div class="me-5">
-                                                    <a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Tautan Pendek</a>
-                                                    <span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">{{ secure_url($link->hash) }}</span>   
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="separator separator-dashed my-5"></div>
-                                        <div class="d-flex flex-stack">
-                                            <div class="d-flex align-items-center me-5">
-                                                <div class="symbol symbol-30px me-5">
-                                                    <span class="symbol-label">  
-                                                        <i class="ki-outline ki-magnifier fs-3 text-gray-600"></i>                             
-                                                    </span>                
-                                                </div>
-                                                <div class="me-5">
-                                                    <a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Dibuat pada</a>
-                                                    <span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">{{ $link->created_at->diffForHumans() }}</span>   
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="separator separator-dashed my-3"></div>
                                     </div>
+                                    <div class="separator py-5"></div>
+                                    <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bold ">
+                                        <li class="nav-item">
+                                            <a class="nav-link text-active-primary py-5 me-6 active" href="/metronic8/demo30/../demo30/apps/projects/project.html">
+                                                Overview                    
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-active-primary py-5 me-6 " href="/metronic8/demo30/../demo30/apps/projects/targets.html">
+                                                Targets                   
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>  
+                            </div>
+                            <div class="card  card-flush">
+                                <div class="card-body py-3">  
                                     <table id="kt_datatable_horizontal_scroll" class="table table-striped table-row-bordered gy-5 gs-7">
                                         <thead>
                                             <tr>
