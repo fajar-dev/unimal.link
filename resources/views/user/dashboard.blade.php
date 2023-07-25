@@ -22,20 +22,20 @@
                                 </li>         
                             </ul>
                     </div>
-                    <div class="d-flex flex-stack flex-wrap flex-lg-nowrap gap-4 gap-lg-10 pt-6 pb-18 py-lg-13">   
+                    <div class="d-flex flex-stack flex-wrap flex-lg-nowrap gap-4 gap-lg-10 pt-6 pb-18 py-lg-8">   
                         <div class="page-title d-flex align-items-center me-3">
-                            <img alt="Logo" src="{{ asset('assets/media/saly.svg') }}" class="w-90px me-5">
-                            <h1 class="page-heading d-flex text-white fw-bolder fs-2 flex-column justify-content-center my-0">
+                            <img alt="Logo" src="{{ asset('assets/media/saly.svg') }}" class="w-90px w-lg-150px me-5">
+                            <h1 class="page-heading d-flex text-white fw-bolder fs-3x flex-column justify-content-center my-0">
                                 Dashboard
-                                <span class="page-desc text-white opacity-50 fs-6 fw-bold pt-2">
-                                    Hai {{ auth()->user()->name }} !!, <br> Selalulah Tersenyum :)       
+                                <span class="page-desc text-white opacity-50 fs-3 fw-bold pt-2">
+                                    Hai {{ auth()->user()->name }} !!,  Selalulah Tersenyum :)       
                                 </span>
                             </h1>
                         </div>
                         <div class="d-flex gap-4 gap-lg-13">
                             <div class="d-flex flex-column">           
-                                <span class="text-white fw-bold fs-3 mb-1 text-end">{{$data['total_links']}}</span> 
-                                <div class="text-white opacity-50 fw-bold">Total Tautan</div>                   
+                                <span class="text-white fw-bold fs-2x mb-1 text-end">{{$data['total_links']}}</span> 
+                                <div class="text-white opacity-50 fs-4 fw-bold">Total Tautan</div>                   
                             </div>
                         </div>
                     </div>

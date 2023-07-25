@@ -18,6 +18,12 @@
                                     <i class="ki-outline ki-right fs-4 text-white mx-n1"></i>               
                                 </li>
                                 <li class="breadcrumb-item text-white fw-bold lh-1">
+                                    Dashboard                                   
+                                </li> 
+                                <li class="breadcrumb-item">
+                                    <i class="ki-outline ki-right fs-4 text-white mx-n1"></i>               
+                                </li>
+                                <li class="breadcrumb-item text-white fw-bold lh-1">
                                     Tautan                                   
                                 </li>         
                             </ul>
@@ -25,18 +31,12 @@
                     <div class="d-flex flex-stack flex-wrap flex-lg-nowrap gap-4 gap-lg-10 pt-6 pb-18 py-lg-13">   
                         <div class="page-title d-flex align-items-center me-3">
                             <img alt="Logo" src="{{ asset('assets/media/saly1.svg') }}" class="w-90px me-5">
-                            <h1 class="page-heading d-flex text-white fw-bolder fs-2 flex-column justify-content-center my-0">
+                            <h1 class="page-heading d-flex text-white fw-bolder fs-3x flex-column justify-content-center my-0">
                                 Detail Tautan
-                                <span class="page-desc text-white opacity-50 fs-6 fw-bold pt-2">
+                                <span class="page-desc text-white opacity-50 fs-5 fw-bold pt-2">
                                     {{ secure_url($link->hash) }}     
                                 </span>
                             </h1>
-                        </div>
-                        <div class="d-flex gap-4 gap-lg-13">
-                            <div class="d-flex flex-column">           
-                                <span class="text-white fw-bold fs-3 mb-1 text-end"></span> 
-                                <div class="text-white opacity-50 fw-bold">Total Tautan</div>                   
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -49,10 +49,10 @@
                 <div id="kt_app_content" class="app-content rounded-2">
                     <div class="row gx-5 gx-xl-10">
                         <div class="col-xl-12 mb-5 mb-xl-10">
-                            <div class="card-header pt-5 pb-0">
+                            <div class="card-header pb-0">
                                <div>
-                                <a href="{{route('dashboard')}}" class="btn btn-light ">
-                                    <i class="ki ki-arrow-back"></i> Kembali
+                                <a href="{{route('dashboard')}}" class="btn btn-light mb-5">
+                                    <i class="ki ki-duotone ki-black-left"></i> Kembali
                                 </a>
                                </div>
                             </div>
@@ -69,7 +69,7 @@
                                                     <div class="d-flex align-items-center me-5">
                                                         <div class="symbol symbol-30px me-5">
                                                             <span class="symbol-label">  
-                                                                <i class="ki-outline ki-magnifier fs-3 text-gray-600"></i>                             
+                                                                <i class="ki-outline ki-fasten fs-3 text-gray-600"></i>                             
                                                             </span>                
                                                         </div>
                                                         <div class="me-5">
@@ -83,7 +83,7 @@
                                                     <div class="d-flex align-items-center me-5">
                                                         <div class="symbol symbol-30px me-5">
                                                             <span class="symbol-label">  
-                                                                <i class="ki-outline ki-magnifier fs-3 text-gray-600"></i>                             
+                                                                <i class="ki-outline ki-fasten fs-3 text-gray-600"></i>                             
                                                             </span>                
                                                         </div>
                                                         <div class="me-5">
@@ -97,7 +97,7 @@
                                                     <div class="d-flex align-items-center me-5">
                                                         <div class="symbol symbol-30px me-5">
                                                             <span class="symbol-label">  
-                                                                <i class="ki-outline ki-magnifier fs-3 text-gray-600"></i>                             
+                                                                <i class="ki-outline ki-calendar fs-3 text-gray-600"></i>                             
                                                             </span>                
                                                         </div>
                                                         <div class="me-5">
@@ -111,46 +111,54 @@
                                         </div>
                                     </div>
                                     <div class="separator py-5"></div>
-                                    <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bold ">
+                                    <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bold" id="pills-tab" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link text-active-primary py-5 me-6 active" href="/metronic8/demo30/../demo30/apps/projects/project.html">
-                                                Overview                    
+                                            <a class="nav-link text-active-primary py-5 me-6 active" href="#"  id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#grafik">
+                                                Grafik                    
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link text-active-primary py-5 me-6 " href="/metronic8/demo30/../demo30/apps/projects/targets.html">
-                                                Targets                   
+                                            <a class="nav-link text-active-primary py-5 me-6 " href="#" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pengunjung">
+                                                Pengunjung                   
                                             </a>
                                         </li>
                                     </ul>
                                 </div>  
                             </div>
-                            <div class="card  card-flush">
-                                <div class="card-body py-3">  
-                                    <table id="kt_datatable_horizontal_scroll" class="table table-striped table-row-bordered gy-5 gs-7">
-                                        <thead>
-                                            <tr>
-                                                <td>{{ __('IP') }}</td>
-                                                <td>{{ __('OS') }}</td>
-                                                <td>{{ __('Browser') }}</td>
-                                                <td>{{ __('Device') }}</td>
-                                                <td>{{ __('Visited At') }}</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($visitors as $visitor)
-                                            <tr>
-                                                <td>{{ $visitor->ip }}</td>
-                                                <td>{{ $visitor->os }}</td>
-                                                <td>{{ $visitor->browser }}</td>
-                                                <td>{{ $visitor->device }}</td>
-                                                <td>{{ $visitor->created_at->diffForHumans() }}</td>
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="grafik" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+                                    
                                 </div>
-                            </div>
+                                <div class="tab-pane fade" id="pengunjung" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+                                    <div class="card  card-flush">
+                                        <div class="card-body py-3">  
+                                            <table id="kt_datatable_horizontal_scroll" class="table table-striped table-row-bordered gy-5 gs-7">
+                                                <thead>
+                                                    <tr>
+                                                        <td>{{ __('IP') }}</td>
+                                                        <td>{{ __('OS') }}</td>
+                                                        <td>{{ __('Browser') }}</td>
+                                                        <td>{{ __('Device') }}</td>
+                                                        <td>{{ __('Visited At') }}</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($visitors as $visitor)
+                                                    <tr>
+                                                        <td>{{ $visitor->ip }}</td>
+                                                        <td>{{ $visitor->os }}</td>
+                                                        <td>{{ $visitor->browser }}</td>
+                                                        <td>{{ $visitor->device }}</td>
+                                                        <td>{{ $visitor->created_at->diffForHumans() }}</td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                            
                         </div>
                     </div>
                 </div>
